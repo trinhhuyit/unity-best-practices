@@ -54,12 +54,6 @@ namespace Architecture.Components
             MapCollider.offset = new Vector2(mapWidthInSpace / 2, -mapHeightInSpace / 2);
             MapCollider.size = new Vector2(mapWidthInSpace, mapHeightInSpace);
 
-
-            //            //BLOCKS
-            //            JObject blocksData = Ultilities.GetData("Data/block");
-            //            List<PositionModel> blocks = blocksData.Value<JArray>("data").ToObject<List<PositionModel>>();
-            //            InitBlock(blocks);
-
             //ROAD
             List<JObject> road = roadData.Value<JArray>("data").ToObject<List<JObject>>();
             InitMaze(road);
@@ -126,13 +120,6 @@ namespace Architecture.Components
                 int y = roadObj.Value<int>("y");
                 map[x, y] = 1;
             }
-
-            //            for (int i = 0; i < blocks.Count; i++)
-            //            {
-            //                PositionModel block = blocks[i];
-            //                map[block.X, block.Y] = 0;
-            //            }
-
             _maze = new Maze(TiledMap.NumTilesWide, TiledMap.NumTilesHigh, map);
         }
 
